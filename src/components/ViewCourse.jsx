@@ -1,11 +1,12 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
+import NavBar from './NavBar'
 
 const ViewCourse = () => {
     const [data,changeData] = useState([])
 
     const fetchData = () => {
-        axios.get("http://192.168.33.245:5001/api/courses")
+        axios.get("https://host-demo-app.onrender.com/api/courses")
         .then(
             (response) => {
                 changeData(response.data)
@@ -20,10 +21,11 @@ const ViewCourse = () => {
     )
   return (
     <div>
+        <NavBar/>
         <div className="container mt-3">
             <div className="row">
                 <div className="col-12">
-                   <table class="table table-hover">
+                   <table className="table table-hover">
                         <thead className='table-dark'>
                             <tr>
                             <th scope="col">Course Name</th>
